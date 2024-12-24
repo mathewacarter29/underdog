@@ -1,0 +1,65 @@
+March Madness Games
+Home team name,Away team name,date,sportsbook,Home moneyline,Away moneyline,Home score,Away score,Round,Region
+UConn,Stetson,2024,Fanduel,-20000,3500,91,52,1,East
+Florida Atlantic,Northwestern ,2024,Fanduel,-137,114,65,77,1,East
+San Diego state,UAB,2024,Fanduel,-310,245,69,65,1,East
+Auburn,Yale,2024,Fanduel,-950,610,76,78,1,East
+BYU,Duquesne,2024,Fanduel,-490,365,67,71,1,East
+Illinois,Morehead state,2024,Fanduel,-850,570,85,69,1,East
+Washington state,Drake ,2024,Fanduel,105,-126,66,61,1,East
+Iowa state,South Dakota state,2024,Fanduel,-2800,1160,82,65,1,East
+Purdue,Grambling,2024,Fanduel,-20000,3500,78,50,1,Midwest
+Utah state,TCU,2024,Fanduel,146,-178,88,72,1,Midwest
+Gonzaga,McNeese State,2024,Fanduel,-280,225,86,65,1,Midwest
+Kansas,Stamford,2024,Fanduel,-315,250,93,89,1,Midwest
+South Carolina,Oregon,2024,Fanduel,-118,-102,73,87,1,Midwest
+Creighton,Akron,2024,Fanduel,-1000,640,77,60,1,Midwest
+Texas,Colorado State,2024,Fanduel,-152,126,56,44,1,Midwest
+Tennessee,St. Peters,2024,Fanduel,-7000,2000,83,49,1,Midwest
+Houston,Longwood,2024,Fanduel,-10000,3000,86,46,1,South
+Nebraska ,Texas A&M,2024,Fanduel,-118,-102,83,98,1,South
+Wisconsin,James Madison,2024,Fanduel,-235,190,61,72,1,South
+Duke,Vermont,2024,Fanduel,-780,530,64,47,1,South
+Texas Tech,NC State,2024,Fanduel,-210,176,67,80,1,South
+Kentucky,Oakland,2024,Fanduel,-1050,660,76,80,1,South
+Florida,Colorado,2024,Fanduel,-111,-108,100,102,1,South
+Marquette,Western Kentucky,2024,Fanduel,-1450,810,87,69,1,South
+UNC,Wagner,2024,Fanduel,-10000,3000,90,62,1,West
+Mississippi state,Michigan State,2024,Fanduel,106,-128,51,69,1,West
+Saint Mary’s,Grand Canyon,2024,Fanduel,-230,188,66,75,1,West
+Alabama,College of Charleston,2024,Fanduel,-520,385,109,96,1,West
+Clemson,New Mexico,2024,Fanduel,100,-120,77,56,1,West
+Baylor,Colgate,2024,Fanduel,-1450,810,92,67,1,West
+Dayton,Nevada,2024,Fanduel,-105,-114,63,60,1,West
+Arizona,Long Beach State,2024,Fanduel,-4500,1600,85,65,1,West
+UConn,Northwestern ,2024,Fanduel,-1600,860,75,58,2,East
+San Diego state,Yale,2024,Fanduel,-245,198,85,57,2,East
+Illinois,Duquesne,2024,Fanduel,-530,390,89,63,2,East
+Iowa state,Washington state,2024,Fanduel,-310,245,67,56,2,East
+Purdue,Utah state,2024,Fanduel,-720,500,106,67,2,Midwest
+Kansas,Gonzaga ,2024,Fanduel,150,-182,68,89,2,Midwest
+Creighton,Oregon ,2024,Fanduel,-215,180,86,73,2,Midwest
+Tennessee,Texas,2024,Fanduel,-280,225,62,58,2,Midwest
+Houston,Texas A&M,2024,Fanduel,-550,400,100,95,2,South
+Duke,James Madison,2024,Fanduel,-310,245,93,55,2,South
+NC State,Oakland,2024,Fanduel,-245,198,79,73,2,South
+Marquette,Colorado,2024,Fanduel,-163,136,81,77,2,South
+UNC,Michigan State,2024,Fanduel,-164,136,85,69,2,West
+Alabama,Grand Canyon,2024,Fanduel,-260,210,72,61,2,West
+Baylor,Clemson,2024,Fanduel,-192,158,64,72,2,West
+Arizona,Dayton,2024,Fanduel,-465,350,78,68,2,West
+UConn,San Diego State,2024,Fanduel,-670,470,75,58,3,East
+Iowa state,Illinois,2024,Fanduel,-114,-105,69,72,3,East
+Purdue,Gonzaga,2024,Fanduel,-230,188,80,68,3,Midwest
+Tennessee,Creighton,2024,Fanduel,-142,118,82,75,3,Midwest
+Houston,Duke,2024,Fanduel,-188,155,51,54,3,South
+Marquette,NC State,2024,Fanduel,-265,215,58,67,3,South
+UNC,Alabama,2024,Fanduel,-178,146,87,89,3,West
+Arizona,Clemson,2024,Fanduel,-285,230,72,77,3,West
+UConn,Illinois,2024,Fanduel,-385,300,77,52,4,East
+Purdue,Tennessee,2024,Fanduel,-162,134,72,66,4,Midwest
+Duke,NC State,2024,Fanduel,-265,215,76,64,4,South
+Alabama,Clemson,2024,Fanduel,-152,126,89,82,4,West
+UConn,Alabama,2024,Fanduel,-850,570,86,72,5,National
+Purdue,NC State,2024,Fanduel,-450,340,63,50,5,National
+UConn,Purdue,2024,Fanduel,-295,235,75,60,6,National
