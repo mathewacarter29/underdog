@@ -8,7 +8,36 @@ Set up local postgres
     > export PGPASSFILE=$(pwd)/.pgpass
 4. Grant permissions to the file (read and write only for current user)
     > sudo chmod 600 .pgpass
+5. Start postgres server
+    > brew services start postgresql@17
 5. Log in without password
-    > psql -U postgres -w
+    > psql -U mathewcarter -w
+    - Postgres creates a user with your computer username - run following command to get username
+        > whoami
+    - If you get "psql: error: connection to server on socket "/tmp/.s.PGSQL.5432" failed: FATAL:  database "mathewcarter" does not exist" error, then you need to create a database for yourself
+        > createdb
 6. To quit out of postgres, use following command
     > \quit
+7. To end postgres service, use following command
+    > brew services stop postgresql@17
+
+Set default schema in psql terminal
+> ALTER USER mathewcarter SET search_path='underdog';
+
+Kill postgres process
+> sudo pkill -u postgres
+
+Start virtual environment
+> source env/bin/activate
+
+End virtual environment
+> deactivate
+
+Write requirements.txt
+> pip freeze > requirements.txt
+
+Download dependencies from requirements.txt
+> pip install -r requirements.txt
+
+In order to run scripts in the virtual environment, must set python interpreter to
+<current directory>/env/bin/python
