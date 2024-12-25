@@ -27,3 +27,6 @@ Write requirements.txt
 
 In order to run scripts in the virtual environment, must set python interpreter to
 <current directory>/env/bin/python
+
+## Setting up API
+> make api-start

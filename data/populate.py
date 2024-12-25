@@ -126,8 +126,8 @@ def main():
             )
         print("Populated database successfully!")
         conn.commit()
-        conn.close()
         cursor.close()
+        conn.close()
     except psycopg2.OperationalError:
         print("Error creating database connection - ensure database is running")
     except psycopg2.DatabaseError:
