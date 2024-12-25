@@ -1,4 +1,4 @@
-.PHONY: login
+.PHONY: db-login
 login:
 	psql -d postgres -U mathewcarter -w
 
@@ -23,4 +23,3 @@ db-wipe:
 	source env/bin/activate;\
 	$$(pwd)/env/bin/python wipe.py;\
 	deactivate;
-
