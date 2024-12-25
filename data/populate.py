@@ -4,7 +4,6 @@ File that will populate local postgres database
 
 import csv
 import psycopg2
-import psycopg2.errors
 
 
 def main():

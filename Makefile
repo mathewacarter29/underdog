@@ -12,14 +12,18 @@ db-stop:
 
 .PHONY: db-populate
 db-populate:
-	cd data;\
 	source env/bin/activate;\
-	$$(pwd)/env/bin/python populate.py;\
+	cd data;\
+	../env/bin/python populate.py;\
 	deactivate;
 
 .PHONY: db-wipe
 db-wipe:
-	cd data;\
 	source env/bin/activate;\
-	$$(pwd)/env/bin/python wipe.py;\
+	cd data;\
+	../env/bin/python wipe.py;\
 	deactivate;
+
+.PHONY: api-start
+api-start:
+	fastapi dev api/main.py

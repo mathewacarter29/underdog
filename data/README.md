@@ -26,18 +26,3 @@ Set default schema in psql terminal
 
 Kill postgres process
 > sudo pkill -u postgres
-
-Start virtual environment
-> source env/bin/activate
-
-End virtual environment
-> deactivate
-
-Write requirements.txt
-> pip freeze > requirements.txt
-
-Download dependencies from requirements.txt
-> pip install -r requirements.txt
-
-In order to run scripts in the virtual environment, must set python interpreter to
-<current directory>/env/bin/python

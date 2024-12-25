@@ -10,3 +10,20 @@
 ```
 > make db-populate
 ```
+
+## Setting up virtualenv
+Install up virtual environment
+> python -m venv env
+> pip install -r requirements.txt
+
+Start virtual environment
+> source env/bin/activate
+
+End virtual environment
+> deactivate
+
+Write requirements.txt
+> pip freeze > requirements.txt
+
+In order to run scripts in the virtual environment, must set python interpreter to
+<current directory>/env/bin/python
