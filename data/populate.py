@@ -4,6 +4,7 @@ File that will populate local postgres database
 
 import csv
 import psycopg2
+import psycopg2.errors
 
 
 def main():
@@ -21,16 +22,15 @@ def main():
             # * is the "splat" operator, used for unpacking arguments
             game = Game(*line[:10])
             games.append(game)
-
-    conn = psycopg2.connect(
-        database="postgres",
-        user="mathewcarter",
-        password="password",
-        host="localhost",
-        port=5432,
-    )
-    cursor = conn.cursor()
     try:
+        conn = psycopg2.connect(
+            database="postgres",
+            user="mathewcarter",
+            password="password",
+            host="localhost",
+            port=5432,
+        )
+        cursor = conn.cursor()
         # create db tables
         create_schema = """
             CREATE SCHEMA underdog;
@@ -126,12 +126,13 @@ def main():
                 ),
             )
         print("Populated database successfully!")
-    except psycopg2.DatabaseError as e:
-        print("Error creating database:", e)
-
-    conn.commit()
-    conn.close()
-    cursor.close()
+        conn.commit()
+        conn.close()
+        cursor.close()
+    except psycopg2.OperationalError:
+        print("Error creating database connection - ensure database is running")
+    except psycopg2.DatabaseError:
+        print("Error populating database - may already be populated")
 
 
 class Game:
