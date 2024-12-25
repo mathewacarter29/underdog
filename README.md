@@ -10,26 +10,42 @@
 ```
 > make db-populate
 ```
+If you wish to reset the database, you can erase it with the `wipe.py` script
+```
+> make db-wipe
+```
 
 ## Setting up virtualenv
-Install up virtual environment
+1. Install up virtual environment
+```
 > python -m venv env
 > pip install -r requirements.txt
-
-Start virtual environment
+```
+2. Start virtual environment
+```
 > source env/bin/activate
+```
 
-End virtual environment
+Stop virtual environment when you are done running the program
+```
 > deactivate
-
-Write requirements.txt
-> pip freeze > requirements.txt
-
-In order to run scripts in the virtual environment, must set python interpreter to
-<current directory>/env/bin/python
+```
 
 ## Setting up API
+```
 > make api-start
+```
 
 Send a GET request to get all database data in formatted output
+```
 GET http://localhost:8000/games
+```
+
+# Commands to note for development
+Write requirements.txt
+```
+pip freeze > requirements.txt
+```
+
+In order to run scripts in the virtual environment, must set python interpreter to
+\<current directory\>/env/bin/python

@@ -1,6 +1,6 @@
 Set up local postgres
 
-1. Create a file called .pgpass (use template file)
+1. Create a file called .pgpass (use template file .pgpass.template)
 2. Write a connection string in the following format
     - hostname:port:database:username:password
     - Example: localhost:5432:postgres:postgres:password
