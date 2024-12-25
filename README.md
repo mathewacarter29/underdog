@@ -30,3 +30,6 @@ In order to run scripts in the virtual environment, must set python interpreter 
 
 ## Setting up API
 > make api-start
+
+Send a GET request to get all database data in formatted output
+GET http://localhost:8000/games
