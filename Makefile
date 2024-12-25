@@ -28,3 +28,7 @@ db-wipe:
 .PHONY: api-start
 api-start:
 	fastapi dev api/main.py
+
+.PHONY: app-start
+app-start:
+	env/bin/python ./app/main.py

@@ -1,7 +1,7 @@
 """
 This adapter handles incoming requests for a certain year of March Madness
 """
-from ports import request_handler
+from ports.request_handler import handle_request #pylint: disable=import-error
 
 def get_request(year):
     """
@@ -9,5 +9,4 @@ def get_request(year):
     """
     print('adapters layer: handling request for year', year)
     # pass request on to port layer
-    results = request_handler.handle_request(year)
-    return results
+    return handle_request(year)
