@@ -1,5 +1,5 @@
 .PHONY: db-login
-login:
+db-login:
 	psql -d postgres -U mathewcarter -w
 
 .PHONY: db-start
