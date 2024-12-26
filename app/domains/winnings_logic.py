@@ -53,17 +53,13 @@ def get_winnings(year, bet):
             profit = calculate_winnings(bet, moneyline)
             winnings += profit
             top_picks = check_for_best_win_list(
-                top_picks,
-                profit,
-                winner_name,
-                loser_name,
-                game["round"]
+                top_picks, profit, winner_name, loser_name, game["round"]
             )
             assert len(top_picks) == BEST_WINS
         # there is not an underdog? would be weird
         elif game["awayTeamMoneyline"] == game["homeTeamMoneyline"]:
             print(
-                f'{game["homeTeamName"]} vs. {game["awayTeamName"]} the same moneyline: {game["homeTeamMoneyline"]}' # pylint: disable=line-too-long
+                f'{game["homeTeamName"]} vs. {game["awayTeamName"]} the same moneyline: {game["homeTeamMoneyline"]}'  # pylint: disable=line-too-long
             )
             print("this should not happen, investigate further")
             winnings += 0
@@ -74,9 +70,11 @@ def get_winnings(year, bet):
     print_top_wins(top_picks)
     return winnings
 
+
 ####################
 # HELPER FUNCTIONS #
 ####################
+
 
 def print_top_wins(top_picks: list[(int, str)]):
     """
@@ -87,7 +85,10 @@ def print_top_wins(top_picks: list[(int, str)]):
         print(pick[1])
     print()
 
-def check_for_best_win_list(top_picks: list[(int, str)], profit, winner, loser, tourn_round):
+
+def check_for_best_win_list(
+    top_picks: list[(int, str)], profit, winner, loser, tourn_round
+):
     """
     Check to see if this game is one of the most profitable games
     """
@@ -99,6 +100,7 @@ def check_for_best_win_list(top_picks: list[(int, str)], profit, winner, loser, 
         sorted_list = sorted_list[:-1]
         return sorted_list
     return top_picks
+
 
 def calculate_winnings(bet: int, odds: float) -> decimal.Decimal:
     """
