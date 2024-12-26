@@ -8,7 +8,8 @@ import json
 import decimal
 from ports.api_service import get_games
 
-
+# TODO do something with the year argument - its really only useful if I have multiple years data
+# maybe it needs to be a API query parameter
 def get_winnings(year, bet):
     """
     Get the winnings from betting on an underdog every game of march madness
