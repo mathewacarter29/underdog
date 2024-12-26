@@ -14,6 +14,7 @@ BET = 100
 BEST_WINS = 3
 VERBOSE = False
 
+logger = logging.getLogger(__name__)
 
 def main():
     """
@@ -26,7 +27,7 @@ def main():
     print("starting Underdog...")
     result, top_picks = get_underdog_request(YEAR, BET, BEST_WINS)
     if result is None:
-        print("There was a problem getting data, check logs for further information")
+        logger.warning("There was a problem getting data, check logs for further information")
     else:
         print()
         print("Winnings for", YEAR)
