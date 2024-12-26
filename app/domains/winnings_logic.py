@@ -66,8 +66,8 @@ def get_winnings(year, bet):
         # there is not an underdog? would be weird
         elif game["awayTeamMoneyline"] == game["homeTeamMoneyline"]:
             print(
-                f'{game["homeTeamName"]} vs. {game["awayTeamName"]} the same moneyline: {game["homeTeamMoneyline"]}'
-            )  # pylint: disable=line-too-long
+                f'{game["homeTeamName"]} vs. {game["awayTeamName"]} the same moneyline: {game["homeTeamMoneyline"]}' # pylint: disable=line-too-long
+            )
             print("this should not happen, investigate further")
             winnings += 0
         # the underdog did not win
