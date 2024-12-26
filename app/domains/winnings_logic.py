@@ -77,6 +77,10 @@ def get_winnings(year, bet):
     print_top_wins(top_picks)
     return winnings
 
+####################
+# HELPER FUNCTIONS #
+####################
+
 def print_top_wins(top_picks: list[(int, str)]):
     """
     Print out the top winners of March Madness
