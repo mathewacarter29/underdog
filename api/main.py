@@ -26,9 +26,8 @@ async def lifespan(app: FastAPI):
 
 server = FastAPI(lifespan=lifespan)
 
-#TODO should probably have a query param for tournament year
 @server.get("/games", status_code=status.HTTP_200_OK)
-def get_games(response: Response):
+def get_games(year: int, response: Response):
     """
     main get endpoint
     """
@@ -37,9 +36,9 @@ def get_games(response: Response):
         cursor = conn.cursor()
         # create cursor
         get_games_query = """
-            SELECT * FROM underdog.games;
+            SELECT * FROM underdog.games WHERE year=%s;
         """
-        cursor.execute(get_games_query)
+        cursor.execute(get_games_query, (year,))
         result = cursor.fetchall()
         games = {"games": []}
         for db_game in result:

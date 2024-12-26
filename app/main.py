@@ -7,7 +7,7 @@ This project uses hexagonal architecture
 
 from adapters.get_request import get_underdog_request
 
-YEAR = 2023
+YEAR = 2024
 BET = 100
 
 

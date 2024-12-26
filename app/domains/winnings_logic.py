@@ -15,16 +15,13 @@ def get_winnings(year, bet):
     """
     Get the winnings from betting on an underdog every game of march madness
     """
-    api_response = get_games()
+    api_response = get_games(year)
     if api_response is None:
         return None
     winnings = 0
     tournament_round = 0
     top_picks = [(0, "")] * BEST_WINS
     for game in api_response["games"]:
-        # only get games for the requested year
-        if game["year"] == year:
-            continue
         # print a winnings update every round
         if game["round"] != tournament_round:
             tournament_round = game["round"]
