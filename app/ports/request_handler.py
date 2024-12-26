@@ -12,5 +12,4 @@ def handle_request(year: int, bet: float, best_wins: int) -> tuple[list[decimal.
     The ports layer is supposed to basically act an an interface between domains and adapters,
     so that is why these function definitions are typed
     """
-    winnings, top_picks = get_winnings(year, bet, best_wins)
-    return winnings, top_picks
+    return get_winnings(year, bet, best_wins)

@@ -24,9 +24,7 @@ def get_winnings(year, bet, best_wins):
         # print a winnings update every round
         if game["round"] != tournament_round:
             tournament_round = game["round"]
-            print(
-                f"\nWinnings after round ${tournament_round - 1}: ${winnings}\n"
-            )
+            print(f"\nWinnings after round ${tournament_round - 1}: ${winnings}\n")
             round_winnings.append(winnings)
 
         winner_name, loser_name = (
