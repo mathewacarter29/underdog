@@ -50,7 +50,7 @@ def get_winnings(year, bet):
             winnings += calculate_winnings(bet, moneyline)
         # there is not an underdog? would be weird
         elif game["awayTeamMoneyline"] == game["homeTeamMoneyline"]:
-            print(f'Both teams had the same moneyline: {game["homeTeamMoneyline"]}')
+            print(f'{game["homeTeamName"]} vs. {game["awayTeamName"]} the same moneyline: {game["homeTeamMoneyline"]}') #pylint: disable=line-too-long
             print("this should not happen, investigate further")
             winnings += 0
         # the underdog did not win
