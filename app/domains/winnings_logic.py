@@ -13,13 +13,17 @@ def get_winnings(year, bet):
     """
     Get the winnings from betting on an underdog every game of march madness
     """
-    print("getting winnings for year", year)
     # 1. get odds for every game during march madness
     api_response = get_games()
     if api_response is None:
         return None
     winnings = 0
+    tournament_round = 0
     for game in api_response["games"]:
+        if game["round"] != tournament_round:
+            tournament_round = game["round"]
+            print(f"Winnings at beginning of round ${tournament_round}: ${winnings}")
+
         winner_name = (
             game["awayTeamName"]
             if game["awayTeamScore"] > game["homeTeamScore"]
@@ -40,7 +44,7 @@ def get_winnings(year, bet):
                 if winner_name == game["homeTeamName"]
                 else game["awayTeamMoneyline"]
             )
-            print("Underdog home team won the game -", winner_name, "wins")
+            print("+ Underdog home team won the game -", winner_name, "wins")
             winnings += calculate_winnings(bet, moneyline)
         # there is not an underdog? would be weird
         elif game["awayTeamMoneyline"] == game["homeTeamMoneyline"]:
@@ -53,7 +57,6 @@ def get_winnings(year, bet):
         else:
             print("- Favorite won the game -", winner_name, "- lost the bet")
             winnings -= bet
-        print(f"Winnings so far: ${winnings}")
     return winnings
 
 
