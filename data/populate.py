@@ -128,9 +128,11 @@ def main():
         conn.commit()
         cursor.close()
         conn.close()
-    except psycopg2.OperationalError:
+    except psycopg2.OperationalError as e:
+        print("operational error:", e)
         print("Error creating database connection - ensure database is running")
-    except psycopg2.DatabaseError:
+    except psycopg2.DatabaseError as e:
+        print("database error:", e)
         print("Error populating database - may already be populated")
 
 

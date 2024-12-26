@@ -31,7 +31,7 @@ Clemson,New Mexico,2024,Fanduel,100,-120,77,56,1,West
 Baylor,Colgate,2024,Fanduel,-1450,810,92,67,1,West
 Dayton,Nevada,2024,Fanduel,-105,-114,63,60,1,West
 Arizona,Long Beach State,2024,Fanduel,-4500,1600,85,65,1,West
-UConn,Northwestern ,2024,Fanduel,-1600,860,75,58,2,East
+UConn,Northwestern,2024,Fanduel,-1600,860,75,58,2,East
 San Diego State,Yale,2024,Fanduel,-245,198,85,57,2,East
 Illinois,Duquesne,2024,Fanduel,-530,390,89,63,2,East
 Iowa State,Washington State,2024,Fanduel,-310,245,67,56,2,East
@@ -62,3 +62,66 @@ Alabama,Clemson,2024,Fanduel,-152,126,89,82,4,West
 UConn,Alabama,2024,Fanduel,-850,570,86,72,5,National
 Purdue,NC State,2024,Fanduel,-450,340,63,50,5,National
 UConn,Purdue,2024,Fanduel,-295,235,75,60,6,National
+Alabama,Texas A&M CC,2023,Fanduel,-10000,2400,96,75,1,South
+Maryland,West Virginia,2023,Fanduel,108,-130,67,65,1,South
+San Diego State,College of Charleston,2023,Fanduel,-220,180,63,57,1,South
+Virginia,Furman,2023,Fanduel,-230,188,67,68,1,South
+Creighton,NC State,2023,Fanduel,-220,180,72,63,1,South
+Baylor,UCSB,2023,Fanduel,-710,490,74,56,1,South
+Missouri,Utah State,2023,Fanduel,-110,-110,76,65,1,South
+Arizona,Princeton,2023,Fanduel,-1400,800,55,59,1,South
+Houston,N Kentucky,2023,Fanduel,-4500,1600,63,52,1,Midwest
+Iowa,Auburn,2023,Fanduel,-113,-106,75,83,1,Midwest
+Miami (FL),Drake,2023,Fanduel,-128,106,63,56,1,Midwest
+Indiana,Kent State,2023,Fanduel,-192,158,71,60,1,Midwest
+Iowa State,Pitt,2023,Fanduel,-178,146,41,59,1,Midwest
+Xavier,Kennesaw State,2023,Fanduel,-750,520,72,67,1,Midwest
+Texas A&M,Penn State,2023,Fanduel,-154,128,59,76,1,Midwest
+Texas,Colgate,2023,Fanduel,-1250,740,81,61,1,Midwest
+Purdue,Fairleigh Dickinson,2023,Fanduel,-8000,2200,58,63,1,East
+Memphis,FAU,2023,Fanduel,-134,112,65,66,1,East
+Duke,Oral Roberts,2023,Fanduel,-275,220,74,51,1,East
+Tennessee,Louisiana,2023,Fanduel,-620,440,58,55,1,East
+Kentucky,Providence,2023,Fanduel,-184,152,61,53,1,East
+Kansas State,Montana State,2023,Fanduel,-385,300,77,65,1,East
+Michigan State,USC,2023,Fanduel,-134,112,72,62,1,East
+Marquette,Vermont,2023,Fanduel,-610,440,78,61,1,East
+Kansas,Howard,2023,Fanduel,-7000,2000,96,68,1,West
+Arkansas,Illinois,2023,Fanduel,-150,125,73,63,1,West
+Saint Mary’s,VCU,2023,Fanduel,-192,158,63,51,1,West
+UConn,Iona,2023,Fanduel,-430,330,87,63,1,West
+TCU,Arizona State,2023,Fanduel,-255,205,72,70,1,West
+Gonzaga,Grand Canyon,2023,Fanduel,-1700,890,82,70,1,West
+Northwestern,Boise State,2023,Fanduel,-130,108,75,67,1,West
+UCLA,UNC Asheville,2023,Fanduel,-4000,1400,86,53,1,West
+Alabama,Maryland,2023,Fanduel,-385,300,73,51,2,South
+San Diego State,Furman,2023,Fanduel,-250,202,75,52,2,South
+Baylor,Creighton,2023,Fanduel,-111,-108,76,85,2,South
+Missouri,Princeton,2023,Fanduel,-265,215,63,78,2,South
+Houston,Auburn,2023,Fanduel,-245,198,81,64,2,Midwest
+Indiana,Miami (FL),2023,Fanduel,-128,106,69,85,2,Midwest
+Xavier,Pitt,2023,Fanduel,-210,172,84,73,2,Midwest
+Texas,Penn State,2023,Fanduel,-235,190,71,66,2,Midwest
+FAU,Fairleigh Dickinson,2023,Fanduel,-1100,680,78,70,2,East
+Tennessee,Duke,2023,Fanduel,128,-154,65,52,2,East
+Kansas State,Kentucky,2023,Fanduel,108,-130,75,69,2,East
+Marquette,Michigan State,2023,Fanduel,-150,125,60,69,2,East
+Kansas,Arkansas,2023,Fanduel,-164,136,71,72,2,West
+UConn,Saint Mary’s,2023,Fanduel,-166,138,70,55,2,West
+Gonzaga,TCU,2023,Fanduel,-194,158,84,81,2,West
+UCLA,Northwestern,2023,Fanduel,-320,255,68,63,2,West
+Alabama,San Diego State,2023,Fanduel,-330,260,64,71,3,South
+Creighton,Princeton,2023,Fanduel,-580,420,86,75,3,South
+Houston,Miami (FL),2023,Fanduel,-285,230,75,89,3,Midwest
+Texas,Xavier,2023,Fanduel,-178,146,83,71,3,Midwest
+Tennessee,FAU,2023,Fanduel,-235,188,55,62,3,East
+Kansas State,Michigan State,2023,Fanduel,-130,108,98,93,3,East
+UConn,Arkansas,2023,Fanduel,-176,146,88,65,3,West
+UCLA,Gonzaga,2023,Fanduel,-132,110,76,79,3,West
+San Diego State,Creighton,2023,Fanduel,102,-122,57,56,4,South
+Texas,Miami (FL),2023,Fanduel,-176,146,81,88,4,Midwest
+Kansas State,FAU,2023,Fanduel,-128,106,76,79,4,East
+Gonzaga,UConn,2023,Fanduel,110,-132,54,82,4,West
+San Diego State,FAU,2023,Fanduel,-134,112,72,71,5,National
+UConn,Miami (FL),2023,Fanduel,-240,195,72,59,5,National
+UConn,San Diego State,2023,Fanduel,-320,255,76,59,6,National

@@ -49,21 +49,20 @@ def get_winnings(year, bet, best_wins):
                 if winner_name == game["homeTeamName"]
                 else game["awayTeamMoneyline"]
             )
-            logger.debug("+ Underdog won the game - %s wins", winner_name)
             profit = calculate_winnings(bet, moneyline)
+            logger.debug("+$%.2f Underdog won the game - %s wins", profit, winner_name)
             winnings += profit
             top_picks = check_for_best_win_list(
                 top_picks, profit, winner_name, loser_name, game["round"]
             )
             assert len(top_picks) == best_wins
-        # there is not an underdog? would be weird
+        # there is not an underdog? would be weird - dont bet
         elif game["awayTeamMoneyline"] == game["homeTeamMoneyline"]:
-            logger.debug("%s vs. %s have equal moneylines: %d", game["homeTeamName"], game["awayTeamName"], game["homeTeamMoneyline"]) # pylint: disable=line-too-long
-            logger.debug("this should not happen, investigate further")
+            logger.debug("/ %s vs. %s have equal moneylines - skipping bet", game["homeTeamName"], game["awayTeamName"]) # pylint: disable=line-too-long
             winnings += 0
         # the underdog did not win
         else:
-            logger.debug("- Favorite won the game - %s wins", winner_name)
+            logger.debug("-$100.00 - Favorite won the game - %s wins", winner_name)
             winnings -= bet
     # add in winnings from championship game
     round_winnings.append(winnings)
