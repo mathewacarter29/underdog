@@ -8,10 +8,8 @@ import json
 import decimal
 from ports.api_service import get_games
 
-BEST_WINS = 3
 
-
-def get_winnings(year, bet):
+def get_winnings(year, bet, best_wins):
     """
     Get the winnings from betting on an underdog every game of march madness
     """
@@ -19,15 +17,17 @@ def get_winnings(year, bet):
     if api_response is None:
         return None
     winnings = 0
-    tournament_round = 0
-    top_picks = [(0, "")] * BEST_WINS
+    tournament_round = 1
+    top_picks = [(0, "")] * best_wins
+    round_winnings = []
     for game in api_response["games"]:
         # print a winnings update every round
         if game["round"] != tournament_round:
             tournament_round = game["round"]
             print(
-                f"\nWinnings at beginning of round ${tournament_round}: ${winnings}\n"
+                f"\nWinnings after round ${tournament_round - 1}: ${winnings}\n"
             )
+            round_winnings.append(winnings)
 
         winner_name, loser_name = (
             (game["awayTeamName"], game["homeTeamName"])
@@ -55,7 +55,7 @@ def get_winnings(year, bet):
             top_picks = check_for_best_win_list(
                 top_picks, profit, winner_name, loser_name, game["round"]
             )
-            assert len(top_picks) == BEST_WINS
+            assert len(top_picks) == best_wins
         # there is not an underdog? would be weird
         elif game["awayTeamMoneyline"] == game["homeTeamMoneyline"]:
             print(
@@ -67,23 +67,14 @@ def get_winnings(year, bet):
         else:
             print("- Favorite won the game -", winner_name, "wins")
             winnings -= bet
-    print_top_wins(top_picks)
-    return winnings
+    # add in winnings from championship game
+    round_winnings.append(winnings)
+    return round_winnings, top_picks
 
 
 ####################
 # HELPER FUNCTIONS #
 ####################
-
-
-def print_top_wins(top_picks: list[(int, str)]):
-    """
-    Print out the top winners of March Madness
-    """
-    print()
-    for pick in top_picks:
-        print(pick[1])
-    print()
 
 
 def check_for_best_win_list(
