@@ -24,7 +24,7 @@ def get_winnings(year, bet):
             continue
         if game["round"] != tournament_round:
             tournament_round = game["round"]
-            print(f"Winnings at beginning of round ${tournament_round}: ${winnings}")
+            print(f"\nWinnings at beginning of round ${tournament_round}: ${winnings}\n")
 
         winner_name = (
             game["awayTeamName"]
@@ -46,7 +46,7 @@ def get_winnings(year, bet):
                 if winner_name == game["homeTeamName"]
                 else game["awayTeamMoneyline"]
             )
-            print("+ Underdog home team won the game -", winner_name, "wins")
+            print("+ Underdog won the game -", winner_name, "wins")
             winnings += calculate_winnings(bet, moneyline)
         # there is not an underdog? would be weird
         elif game["awayTeamMoneyline"] == game["homeTeamMoneyline"]:
@@ -55,7 +55,7 @@ def get_winnings(year, bet):
             winnings += 0
         # the underdog did not win
         else:
-            print("- Favorite won the game -", winner_name, "- lost the bet")
+            print("- Favorite won the game -", winner_name, "wins")
             winnings -= bet
     return winnings
 
