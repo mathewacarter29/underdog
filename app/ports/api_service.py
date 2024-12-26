@@ -1,7 +1,7 @@
 """
 port layer for sending API request
 """
-from adapters.games_request import send_games_request
+from app.adapters.games_requester import send_games_request
 
 def get_games() -> dict[str, any]:
     """

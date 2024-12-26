@@ -8,7 +8,7 @@ import json
 import decimal
 from ports.api_service import get_games
 
-BEST_WINS = 5
+BEST_WINS = 3
 
 
 def get_winnings(year, bet):
