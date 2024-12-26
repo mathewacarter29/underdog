@@ -5,6 +5,7 @@ Calculates profit given a default bet size on every underdog during a certain ye
 """
 
 import json
+import decimal
 from ports.api_service import get_games
 
 
@@ -19,20 +20,28 @@ def get_winnings(year, bet):
         return None
     winnings = 0
     for game in api_response["games"]:
-        # if home team is underdog and they won, add winnings
+        winner_name = (
+            game["awayTeamName"]
+            if game["awayTeamScore"] > game["homeTeamScore"]
+            else game["homeTeamName"]
+        )
+        # if underdog wins, then add to winnings
+        # check if home team is underdog and if they win OR
+        # check if away team is underdog and if they win
         if (
             game["homeTeamMoneyline"] > game["awayTeamMoneyline"]
             and game["homeTeamScore"] > game["awayTeamScore"]
-        ):
-            print("Underdog home team won the game -", game["homeTeamName"], "wins")
-            winnings += calculate_winnings(bet, game["homeTeamMoneyline"])
-        # if away team is underdog and they won, add winnings
-        elif (
+        ) or (
             game["awayTeamMoneyline"] > game["homeTeamMoneyline"]
             and game["awayTeamScore"] > game["homeTeamScore"]
         ):
-            print("Underdog away team won the game -", game["awayTeamName"], "wins")
-            winnings += calculate_winnings(bet, game["awayTeamMoneyline"])
+            moneyline = (
+                game["homeTeamMoneyline"]
+                if winner_name == game["homeTeamName"]
+                else game["awayTeamMoneyline"]
+            )
+            print("Underdog home team won the game -", winner_name, "wins")
+            winnings += calculate_winnings(bet, moneyline)
         # there is not an underdog? would be weird
         elif game["awayTeamMoneyline"] == game["homeTeamMoneyline"]:
             print(
@@ -42,16 +51,13 @@ def get_winnings(year, bet):
             winnings += 0
         # the underdog did not win
         else:
-            winner = game["awayTeamName"] if game["awayTeamScore"] > game["homeTeamScore"] else game["homeTeamName"]
-            print("Favorite won the game -", winner, "- lost the bet")
+            print("- Favorite won the game -", winner_name, "- lost the bet")
             winnings -= bet
-        print("winnings so far:", winnings)
-    # 4. add up all winnings
-    print(winnings)
-    return None
+        print(f"Winnings so far: ${winnings}")
+    return winnings
 
 
-def calculate_winnings(bet: int, odds: float):
+def calculate_winnings(bet: int, odds: float) -> decimal.Decimal:
     """
     Calculate winning total based on the bet and the following formulas
 
@@ -75,9 +81,9 @@ def calculate_winnings(bet: int, odds: float):
     """
     result = 0
     if odds >= 0:
-        result = (bet / 100.0) * odds
+        result = decimal.Decimal((bet / 100.0)) * odds
     else:
-        result = (100 / odds) * bet * -1
+        result = decimal.Decimal((100 / odds)) * bet * -1
     return round(result, 2)
 
 

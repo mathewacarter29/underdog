@@ -19,8 +19,6 @@ def main():
     result = get_underdog_request(YEAR, BET)
     if result is None:
         print("there was a problem getting data, check logs for further information")
-    else:
-        print(result)
 
 
 if __name__ == "__main__":
