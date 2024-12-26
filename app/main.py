@@ -6,33 +6,41 @@ This project uses hexagonal architecture
 """
 
 import decimal
+import logging
 from adapters.get_request import get_underdog_request
 
 YEAR = 2024
 BET = 100
 BEST_WINS = 3
+VERBOSE = False
 
 
 def main():
     """
     main method
     """
+    if VERBOSE:
+        logging.basicConfig(level=logging.DEBUG)
+    else:
+        logging.basicConfig(level=logging.WARNING)
     print("starting Underdog...")
     result, top_picks = get_underdog_request(YEAR, BET, BEST_WINS)
     if result is None:
         print("There was a problem getting data, check logs for further information")
     else:
-        print_top_wins(top_picks)
+        print()
+        print("Winnings for", YEAR)
         print_winnings(result)
+        print()
+        print("Best bets for", YEAR)
+        print_top_wins(top_picks)
 
 def print_top_wins(top_picks: list[(int, str)]):
     """
     Print out the top winners of March Madness
     """
-    print()
     for pick in top_picks:
         print(pick[1])
-    print()
 
 def print_winnings(winnings: list[decimal.Decimal]):
     """

@@ -5,9 +5,11 @@ Calculates profit given a default bet size on every underdog during a certain ye
 """
 
 import json
+import logging
 import decimal
 from ports.api_service import get_games
 
+logger = logging.getLogger(__name__)
 
 def get_winnings(year, bet, best_wins):
     """
@@ -24,7 +26,7 @@ def get_winnings(year, bet, best_wins):
         # print a winnings update every round
         if game["round"] != tournament_round:
             tournament_round = game["round"]
-            print(f"\nWinnings after round ${tournament_round - 1}: ${winnings}\n")
+            logger.debug("Winnings after round %d: $%.2f\n", tournament_round + 1, winnings)
             round_winnings.append(winnings)
 
         winner_name, loser_name = (
@@ -47,7 +49,7 @@ def get_winnings(year, bet, best_wins):
                 if winner_name == game["homeTeamName"]
                 else game["awayTeamMoneyline"]
             )
-            print("+ Underdog won the game -", winner_name, "wins")
+            logger.debug("+ Underdog won the game - %s wins", winner_name)
             profit = calculate_winnings(bet, moneyline)
             winnings += profit
             top_picks = check_for_best_win_list(
@@ -56,14 +58,12 @@ def get_winnings(year, bet, best_wins):
             assert len(top_picks) == best_wins
         # there is not an underdog? would be weird
         elif game["awayTeamMoneyline"] == game["homeTeamMoneyline"]:
-            print(
-                f'{game["homeTeamName"]} vs. {game["awayTeamName"]} the same moneyline: {game["homeTeamMoneyline"]}'  # pylint: disable=line-too-long
-            )
-            print("this should not happen, investigate further")
+            logger.debug("%s vs. %s have equal moneylines: %d", game["homeTeamName"], game["awayTeamName"], game["homeTeamMoneyline"]) # pylint: disable=line-too-long
+            logger.debug("this should not happen, investigate further")
             winnings += 0
         # the underdog did not win
         else:
-            print("- Favorite won the game -", winner_name, "wins")
+            logger.debug("- Favorite won the game - %s wins", winner_name)
             winnings -= bet
     # add in winnings from championship game
     round_winnings.append(winnings)
@@ -83,7 +83,7 @@ def check_for_best_win_list(
     """
     # if the profit is greater than the 3rd element in the list, add it
     if profit > top_picks[-1][0]:
-        label = f"{winner} beats {loser} to win ${profit} in Round {tourn_round}"
+        label = f"Underdog {winner} beats {loser} to win ${profit} in Round {tourn_round}"
         top_picks.append((profit, label))
         sorted_list = sorted(top_picks, key=lambda tup: tup[0], reverse=True)
         sorted_list = sorted_list[:-1]
