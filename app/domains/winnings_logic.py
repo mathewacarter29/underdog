@@ -8,28 +8,34 @@ import json
 import decimal
 from ports.api_service import get_games
 
+BEST_WINS = 5
+
 
 def get_winnings(year, bet):
     """
     Get the winnings from betting on an underdog every game of march madness
     """
-    # 1. get odds for every game during march madness
     api_response = get_games()
     if api_response is None:
         return None
     winnings = 0
     tournament_round = 0
+    top_picks = [(0, "")] * BEST_WINS
     for game in api_response["games"]:
+        # only get games for the requested year
         if game["year"] == year:
             continue
+        # print a winnings update every round
         if game["round"] != tournament_round:
             tournament_round = game["round"]
-            print(f"\nWinnings at beginning of round ${tournament_round}: ${winnings}\n")
+            print(
+                f"\nWinnings at beginning of round ${tournament_round}: ${winnings}\n"
+            )
 
-        winner_name = (
-            game["awayTeamName"]
+        winner_name, loser_name = (
+            (game["awayTeamName"], game["homeTeamName"])
             if game["awayTeamScore"] > game["homeTeamScore"]
-            else game["homeTeamName"]
+            else (game["homeTeamName"], game["awayTeamName"])
         )
         # if underdog wins, then add to winnings
         # check if home team is underdog and if they win OR
@@ -47,18 +53,51 @@ def get_winnings(year, bet):
                 else game["awayTeamMoneyline"]
             )
             print("+ Underdog won the game -", winner_name, "wins")
-            winnings += calculate_winnings(bet, moneyline)
+            profit = calculate_winnings(bet, moneyline)
+            winnings += profit
+            top_picks = check_for_best_win_list(
+                top_picks,
+                profit,
+                winner_name,
+                loser_name,
+                game["round"]
+            )
+            assert len(top_picks) == BEST_WINS
         # there is not an underdog? would be weird
         elif game["awayTeamMoneyline"] == game["homeTeamMoneyline"]:
-            print(f'{game["homeTeamName"]} vs. {game["awayTeamName"]} the same moneyline: {game["homeTeamMoneyline"]}') #pylint: disable=line-too-long
+            print(
+                f'{game["homeTeamName"]} vs. {game["awayTeamName"]} the same moneyline: {game["homeTeamMoneyline"]}'
+            )  # pylint: disable=line-too-long
             print("this should not happen, investigate further")
             winnings += 0
         # the underdog did not win
         else:
             print("- Favorite won the game -", winner_name, "wins")
             winnings -= bet
+    print_top_wins(top_picks)
     return winnings
 
+def print_top_wins(top_picks: list[(int, str)]):
+    """
+    Print out the top winners of March Madness
+    """
+    print()
+    for pick in top_picks:
+        print(pick[1])
+    print()
+
+def check_for_best_win_list(top_picks: list[(int, str)], profit, winner, loser, tourn_round):
+    """
+    Check to see if this game is one of the most profitable games
+    """
+    # if the profit is greater than the 3rd element in the list, add it
+    if profit > top_picks[-1][0]:
+        label = f"{winner} beats {loser} to win ${profit} in Round {tourn_round}"
+        top_picks.append((profit, label))
+        sorted_list = sorted(top_picks, key=lambda tup: tup[0], reverse=True)
+        sorted_list = sorted_list[:-1]
+        return sorted_list
+    return top_picks
 
 def calculate_winnings(bet: int, odds: float) -> decimal.Decimal:
     """
