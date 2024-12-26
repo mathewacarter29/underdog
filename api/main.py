@@ -26,7 +26,7 @@ async def lifespan(app: FastAPI):
 
 server = FastAPI(lifespan=lifespan)
 
-
+#TODO should probably have a query param for tournament year
 @server.get("/games", status_code=status.HTTP_200_OK)
 def get_games(response: Response):
     """

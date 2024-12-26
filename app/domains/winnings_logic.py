@@ -8,8 +8,7 @@ import json
 import decimal
 from ports.api_service import get_games
 
-# TODO do something with the year argument - its really only useful if I have multiple years data
-# maybe it needs to be a API query parameter
+
 def get_winnings(year, bet):
     """
     Get the winnings from betting on an underdog every game of march madness
@@ -21,6 +20,8 @@ def get_winnings(year, bet):
     winnings = 0
     tournament_round = 0
     for game in api_response["games"]:
+        if game["year"] == year:
+            continue
         if game["round"] != tournament_round:
             tournament_round = game["round"]
             print(f"Winnings at beginning of round ${tournament_round}: ${winnings}")
@@ -49,9 +50,7 @@ def get_winnings(year, bet):
             winnings += calculate_winnings(bet, moneyline)
         # there is not an underdog? would be weird
         elif game["awayTeamMoneyline"] == game["homeTeamMoneyline"]:
-            print(
-                f'Both teams had the same moneyline: home (${game["homeTeamMoneyline"]}), away (${game["awayTeamMoneyline"]})'
-            )
+            print(f'Both teams had the same moneyline: {game["homeTeamMoneyline"]}')
             print("this should not happen, investigate further")
             winnings += 0
         # the underdog did not win
