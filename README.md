@@ -1,21 +1,9 @@
-# Getting started
+# Underdog
+This project attempts to simulate what a project in a professional environment would look like. Using a locally hosted Postgres v17.2 Database, a Python FastAPI, and a main project set up using a hexagonal architecture pattern, Underdog determines whether it is profitable to bet on the underdog of every March Madness game of a certain year.
 
-## Initialize database
-1. Follow README instructions in data/README.md to set up local postgres instance
-2. Ensure database is running with make command
-```
-> make db-start
-```
-3. Populate database with `populate.py` script
-```
-> make db-populate
-```
-If you wish to reset the database, you can erase it with the `wipe.py` script
-```
-> make db-wipe
-```
+## Getting started
 
-## Setting up virtualenv
+### Setting up virtualenv
 1. Install up virtual environment
 ```
 > python -m venv env
@@ -31,14 +19,29 @@ Stop virtual environment when you are done running the program
 > deactivate
 ```
 
-## Setting up API
+### Initialize database
+1. Follow README instructions in data/README.md to set up local postgres instance
+2. Ensure database is running with make command
+```
+> make db-start
+```
+3. Populate database with `populate.py` script
+```
+> make db-populate
+```
+If you wish to reset the database, you can erase it with the `wipe.py` script
+```
+> make db-wipe
+```
+
+### Setting up API
 ```
 > make api-start
 ```
 
 Send a GET request to get all database data in formatted output
 ```
-GET http://localhost:8000/games
+GET http://localhost:8000/games?year=2024
 ```
 
 Sample response
@@ -60,7 +63,7 @@ Sample response
     ...
 ```
 
-# Commands to note for development
+## Commands to note for development
 Write requirements.txt
 ```
 pip freeze > requirements.txt
@@ -69,7 +72,7 @@ pip freeze > requirements.txt
 In order to run scripts in the virtual environment, must set python interpreter to
 \<current directory\>/env/bin/python
 
-# Sources for Fanduel Data
+## Sources for Fanduel Data
 2024
 1st round
 https://www.fanduel.com/research/2024-ncaa-tournament-first-round-betting-odds-predictions-spreads-moneylines-totals
