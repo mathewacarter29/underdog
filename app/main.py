@@ -9,7 +9,7 @@ import decimal
 import logging
 from adapters.get_request import get_underdog_request
 
-YEAR = 2023
+YEAR = 2022
 BET = 100
 BEST_WINS = 3
 VERBOSE = False
