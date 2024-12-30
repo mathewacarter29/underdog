@@ -1,7 +1,7 @@
 .PHONY: db-login
 db-login:
 	export PGPASSFILE=$$(pwd)/data/.pgpass;\
-	psql -d postgres -U mathewcarter -w;
+	psql -d postgres -U postgres -w;
 
 .PHONY: db-start
 db-start:

@@ -12,9 +12,10 @@ async def lifespan(app: FastAPI):
     """
     runs on API startup - sets up database connection
     """
+    #TODO put username and password in .env
     conn = psycopg2.connect(
         database="postgres",
-        user="mathewcarter",
+        user="postgres",
         password="password",
         host="localhost",
         port=5432,
