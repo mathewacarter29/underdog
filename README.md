@@ -72,6 +72,9 @@ pip freeze > requirements.txt
 In order to run scripts in the virtual environment, must set python interpreter to
 \<current directory\>/env/bin/python
 
+## Source for data before 2023
+https://www.oddsportal.com/
+
 ## Sources for Fanduel Data
 ### 2024
 #### 1st round
